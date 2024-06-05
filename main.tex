@@ -1,0 +1,155 @@
+\documentclass[twocolumn,twocolappendix]{openjournal}
+\renewcommand{\baselinestretch}{1.075}
+\usepackage{macros} % define additional commands here
+\shortauthors{Mendoza et al.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{JAX-GalSim: A differentiable and gpu-accelerated approach to galaxy simulations}
+
+\author{Ismael Mendoza \hskip2pt\href{https://orcid.org/0000-0002-6313-4597}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{Department of Physics, University of Michigan, Ann Arbor, MI 48105, USA}
+
+\author{Jean-Eric Campagne \hskip2pt\href{https://orcid.org/0000-0002-1590-6927}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{Université Paris-Saclay, CNRS/IN2P3, IJCLab, 91405 Orsay, France}
+
+\author{Benjamin Remy \hskip2pt\href{https://orcid.org/XXXX-XXXX-XXXX-XXXX}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{...}
+
+\author{Matthew R. Becker \hskip2pt\href{https://orcid.org/0000-0001-7774-2246}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{High Energy Physics Division, Argonne National Laboratory, Lemont, IL 60439, USA}
+
+\author{Francois Lanusse \hskip2pt\href{https://orcid.org/XXXX-XXXX-XXXX-XXXX}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{...}
+
+\author{Axel Guinot \hskip2pt\href{https://orcid.org/0000-0002-5068-7918}{\includegraphics[width=9pt]{Orcid-ID.png}}}
+\affiliation{Université Paris Cité, CNRS, AstroParticule et Cosmologie, F-75013, Paris, France}
+\affiliation{McWilliams Center for Cosmology, Department of Physics, Carnegie Mellon University, Pittsburgh, PA 15213, USA}
+
+\begin{abstract}
+(...)
+The \jgalsim code repository is public at \url{https://github.com/GalSim-developers/JAX-GalSim}.  
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{sec:intro}
+
+\begin{itemize}
+    \item Modern Cosmological Surveys and how are Galaxy ``Simulations'' / ``Forward models'' useful (at a high-level)
+    
+    \item Previous work on galaxy simulations, most prominently \galsim \citep{galsim2015}; what has been achieved and how they have been used.
+    
+    \item Previous work on differentiable or GPU galaxy simulations (AstroPhot? \cite{astrophot2023}, closest to \jgalsim probably), galaxy modeling with ML in general (BLISS, DebVader,...), introduce JAX \citep{jax2018github}, other initiatives in cosmology forward modeling (like jax-cosmo)
+    
+    \item motivation and introduction to \jgalsim 
+
+    \item briefly describe and enumerate sections of the paper
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Development Approach}
+% Here we explain at a high-level how this package is different from GalSim and why it might be useful
+
+%=====================================
+\subsection{Differences with GalSim}
+
+\begin{itemize}
+    \item Differentiability 
+    \item GPU
+    \item JIT 
+    \item Vectorizable
+    \item Functional Oriented
+    \item Pure python
+    \item Randomness
+\end{itemize}
+
+%=====================================
+\subsection{Potential Applications}
+
+\begin{itemize}
+    \item HMC 
+    \item Cosmological Bayesian Pipelines
+    \item NN-enabled realistic galaxy models
+\end{itemize}
+
+%=====================================
+\subsection{Testing Suite}
+
+Briefly describe our unit test suite. 
+
+\begin{itemize}
+    \item Comparisons with Galsim
+    \item carefully checking every operation is jittable, differentiable, vectorizable
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Code Structure} % better name? 
+
+\begin{itemize}
+    \item What is currently implemented and important things missing
+    
+    \item Emphasize particularly tricky or interesting implementations of certain aspects of the code e.g. things that couldn't be replicated from GalSim due to JAX limitations
+    
+    \item Highlights: galaxy models implemented; image operations implemented such as shear, convolutions, interpolation; drawing techniques fft, real (?), pixel response 
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Benchmark with GalSim} 
+% Accuracy 
+
+In this section we compare the accuracy and speed of JAX-GalSim with GalSim \citep{galsim2015}, both in CPU and GPU, when rendering simple galaxy images.
+
+\begin{figure}
+\includegraphics[width=0.45\textwidth]{example-image-a}
+\caption{
+    (...)
+    }
+\label{fig:benchmark1}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions and Future Directions}
+
+We have presented...
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgements} 
+
+IM acknowledges the support of the Special Interest Group on High Performance Computing (SIGHPC) Computational and Data Science Fellowship. IM acknowledges support from the Michigan Institute for Computational Discovery and Engineering (MICDE) Graduate Fellowship. IM acknowledges support from the Leinweber Center for Theoretical Physics Summer Fellowship.
+
+We also acknowledge the use of \texttt{jax} \citep{jax2018github,frostig2018compiling}, \texttt{numpy} \citep{numpy2020}, \texttt{scipy} \citep{scipy2020}, \astropy \citep{astropy:2013,astropy:2018,astropy:2022}, \texttt{matplotlib} \citep{matplotlib2007}, and \galsim \citep{galsim2015}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Author Contributions} 
+
+\begin{itemize}
+    \item IM: 
+
+    \item MB: 
+
+    \item JEC: 
+
+    \item FL: 
+
+    \item BR: 
+
+    \item AG: 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section*{First Appendix}\label{app:first}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{references}{}
+\bibliographystyle{aasjournal}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
